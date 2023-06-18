@@ -1,20 +1,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.alalfy.ussd_dialer">
+          xmlns:tools="http://schemas.android.com/tools" package="com.alalfy.ussd_dialer">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:label="USSD Dialer"
-        android:icon="@mipmap/ic_launcher">
+            android:label="USSD Dialer"
+            android:allowBackup="false"
+            android:largeHeap="true"
+            android:supportsRtl="false"
+            android:icon="@mipmap/ic_launcher" tools:targetApi="honeycomb">
+
         <activity
-            android:name=".MainActivity"
-            android:launchMode="singleTop"
-            android:theme="@style/LaunchTheme"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-            android:hardwareAccelerated="true"
-            android:windowSoftInputMode="adjustResize">
+                android:name=".MainActivity"
+                android:launchMode="singleTop"
+                android:theme="@style/LaunchTheme"
+                android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+                android:hardwareAccelerated="true"
+                android:windowSoftInputMode="adjustResize" android:exported="true">
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user
                  while the Flutter UI initializes. After that, this theme continues
