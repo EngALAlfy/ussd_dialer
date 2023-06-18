@@ -75,7 +75,7 @@ class UssdProvider extends ChangeNotifier {
       }
       // code = "*777*2*2*${numbers.elementAt(i)}*$amount*900119#";
       /// m for mobile number - a for amount
-      code = codeFormat.replaceFirst("m", numbers.elementAt(i)).replaceFirst("a", amount);
+      code = codeFormat.replaceAll("m", numbers.elementAt(i)).replaceAll("a", amount);
       number = numbers.elementAt(i);
       await dialUssd();
     }
