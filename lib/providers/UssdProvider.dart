@@ -71,7 +71,7 @@ class UssdProvider extends ChangeNotifier {
       }
       status = "Progress...${i+1}";
       if (i != 0) {
-        await Future.delayed(Duration(seconds: 5));
+        await Future.delayed(delay);
       }
       // code = "*777*2*2*${numbers.elementAt(i)}*$amount*900119#";
       /// m for mobile number - a for amount

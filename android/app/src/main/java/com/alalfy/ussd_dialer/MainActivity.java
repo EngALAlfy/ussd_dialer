@@ -1,4 +1,4 @@
-package com.alalfy.ussd_dialer;
+package com.alalfy.ussd_dialer1;
 
 import io.flutter.embedding.android.FlutterActivity;
 

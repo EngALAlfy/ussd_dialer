@@ -28,7 +28,7 @@ android {
     compileSdkVersion 33
 
     defaultConfig {
-        applicationId "com.alalfy.ussd_dialer"
+        applicationId "com.alalfy.ussd_dialer1"
         minSdkVersion 26
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()

@@ -11,6 +11,8 @@ import 'package:ussd_dialer/widgets/IsLoadingWidget.dart';
 class HomeScreen extends StatelessWidget {
   final _amountController = TextEditingController();
   final _codeFormatController = TextEditingController();
+  final _delayController = TextEditingController(text: "10");
+  final _durationController = TextEditingController(text: "50");
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +63,34 @@ class HomeScreen extends StatelessWidget {
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: "Amount",
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Divider(),
+            SizedBox(
+              height: 30,
+            ),
+            TextField(
+              controller: _delayController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "Delay",
+                hintText: "10",
+                helperText: "Delay between every USSD"
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            TextField(
+              controller: _durationController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "Duration",
+                hintText: "50",
+                helperText: "Duration of every USSD"
               ),
             ),
             SizedBox(
@@ -148,10 +178,16 @@ class HomeScreen extends StatelessWidget {
     var numbers = context.read<ExcelProvider>().numbers;
     var amount = _amountController.text ?? "0";
     var codeFormat = _codeFormatController.text;
+
+    var delay = _delayController.text;
+    var duration = _durationController.text;
+
     context.read<UssdProvider>().sim = sim;
     context.read<UssdProvider>().numbers = numbers;
     context.read<UssdProvider>().amount = amount;
     context.read<UssdProvider>().codeFormat = codeFormat;
+    context.read<UssdProvider>().delay = Duration(seconds: int.tryParse(delay ?? "10") ?? 10);
+    context.read<UssdProvider>().duration = Duration(seconds: int.tryParse(duration ?? "50") ?? 50);
 
     if(sim == null){
       Alert(context: context,type: AlertType.error, title: "Error",desc: "Please , Select sim").show();
